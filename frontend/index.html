@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DAO Governance dApp</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <span class="navbar-brand">DAO Governance dApp</span>
+      <button id="connectWalletBtn" class="btn btn-success">Connect Wallet</button>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <section class="card mb-4">
+      <div class="card-header">
+        Wallet Information
+      </div>
+      <div class="card-body">
+        <p><strong>Connected Account:</strong> <span id="account">Not connected</span></p>
+        <p><strong>Network:</strong> <span id="network">-</span></p>
+        <p><strong>Token Balance:</strong> <span id="tokenBalance">-</span></p>
+        <p><strong>Voting Power:</strong> <span id="votingPower">-</span></p>
+        <p><strong>Current Delegate:</strong> <span id="delegateAddress">-</span></p>
+        <button id="refreshInfoBtn" class="btn btn-outline-primary">Refresh Info</button>
+      </div>
+    </section>
+
+    <section class="card mb-4">
+      <div class="card-header">
+        Delegate Votes
+      </div>
+      <div class="card-body">
+        <label for="delegateInput" class="form-label">Delegate address</label>
+        <input id="delegateInput" class="form-control mb-3" placeholder="0x..." />
+        <button id="delegateBtn" class="btn btn-primary">Delegate Votes</button>
+        <p class="mt-3"><strong>Delegate Transaction:</strong> <span id="delegateTx">-</span></p>
+      </div>
+    </section>
+
+    <section class="card mb-4">
+      <div class="card-header">
+        Create Demo Proposal
+      </div>
+      <div class="card-body">
+        <p>This creates a proposal to call <strong>Box.store(42)</strong>.</p>
+        <button id="createProposalBtn" class="btn btn-warning">Create Box.store(42) Proposal</button>
+        <p class="mt-3"><strong>Proposal ID:</strong> <span id="createdProposalId">-</span></p>
+        <p><strong>Proposal Transaction:</strong> <span id="proposalTx">-</span></p>
+      </div>
+    </section>
+
+    <section class="card mb-4">
+      <div class="card-header">
+        View Proposal State
+      </div>
+      <div class="card-body">
+        <label for="proposalIdInput" class="form-label">Proposal ID</label>
+        <input id="proposalIdInput" class="form-control mb-3" placeholder="Paste proposal ID here" />
+        <button id="loadProposalBtn" class="btn btn-outline-dark">Load Proposal</button>
+        <p class="mt-3"><strong>Proposal State:</strong> <span id="proposalState">-</span></p>
+      </div>
+    </section>
+
+    <section class="card mb-4">
+      <div class="card-header">
+        Cast Vote
+      </div>
+      <div class="card-body">
+        <p>Vote types: Against = 0, For = 1, Abstain = 2</p>
+        <button id="voteAgainstBtn" class="btn btn-danger me-2">Vote Against</button>
+        <button id="voteForBtn" class="btn btn-success me-2">Vote For</button>
+        <button id="voteAbstainBtn" class="btn btn-secondary">Vote Abstain</button>
+        <p class="mt-3"><strong>Vote Transaction:</strong> <span id="voteTx">-</span></p>
+      </div>
+    </section>
+
+    <section class="card mb-4">
+      <div class="card-header">
+        Proposal Results
+      </div>
+      <div class="card-body">
+        <button id="loadResultsBtn" class="btn btn-outline-primary">Load Proposal Results</button>
+        <p class="mt-3"><strong>Against Votes:</strong> <span id="againstVotes">-</span></p>
+        <p><strong>For Votes:</strong> <span id="forVotes">-</span></p>
+        <p><strong>Abstain Votes:</strong> <span id="abstainVotes">-</span></p>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        Status Log
+      </div>
+      <div class="card-body">
+        <pre id="statusLog" class="mb-0">Ready.</pre>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
