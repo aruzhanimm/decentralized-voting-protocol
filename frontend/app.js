@@ -1,7 +1,7 @@
 const CONTRACTS = {
-  token: "0x88AE1264dFa66DcB21346dcaC2dB6206B18c3608",
-  governor: "0x956F161e019E786a017BC03a82d2D424346f2F3F",
-  box: "0x340Ef896b9FAB6109A4A123056e1500AC0b504Aa"
+  token: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  governor: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+  box: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9"
 };
 
 const TOKEN_ABI = [
@@ -88,8 +88,8 @@ async function connectWallet() {
   boxInterface = new ethers.Interface(BOX_ABI);
 
   const network = await provider.getNetwork();
-  if (Number(network.chainId) !== 11155111) {
-    alert("Please switch MetaMask to Ethereum Sepolia network.");
+  if (Number(network.chainId) !== 31337) {
+    alert("Please switch MetaMask to Anvil network.");
     setText("network", `${network.name} (${network.chainId})`);
     return;
   }
