@@ -1,4 +1,4 @@
-# DAO Governance System — Assignment 4
+# DAO Governance System 
 
 A complete on-chain DAO governance system built with Solidity, Foundry, and OpenZeppelin. Covers a governance token, full Governor + Timelock lifecycle, treasury management, a controlled contract, a minimal frontend, and a security audit.
 
